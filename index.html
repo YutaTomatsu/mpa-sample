@@ -9,11 +9,15 @@
       nav a { margin-right: 12px; }
       .hint { color: #666; font-size: 14px; }
     </style>
+    <script src="./ux-canvas-viewer.iife.js"></script>
     <script>
-      // APIベースURL（必要に応じて変更）
-      window.__UXC_API_BASE__ = "http://localhost:8080";
+      document.addEventListener('DOMContentLoaded', function () {
+        window.__UXC_API_BASE__ = 'http://localhost:8080'
+        const productUuid = '29a99557-85dd-4b6b-8a28-b6599dc475fa'
+        const sessionId = undefined
+        window.UxCanvasViewer?.init?.(productUuid, sessionId, {})
+      })
     </script>
-    <script defer src="./assets/ux-canvas-viewer.iife.js"></script>
   </head>
   <body>
     <h1>MPA Sample - Index</h1>
@@ -22,11 +26,6 @@
       <a href="./page-b.html">Page B</a>
     </nav>
     <p class="hint">このページでURLパターンが一致するガイドがあれば表示されます。</p>
-
-    <script>
-      // あなたのプロダクトUUIDに置き換えてください
-      window.UxCanvasViewer.init("YOUR_PRODUCT_UUID");
-    </script>
   </body>
   </html>
 
