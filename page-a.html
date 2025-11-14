@@ -11,12 +11,7 @@
     </style>
     <script src="./ux-canvas-viewer.iife.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        window.__UXC_API_BASE__ = 'http://localhost:8080'
-        const productUuid = '29a99557-85dd-4b6b-8a28-b6599dc475fa'
-        const sessionId = undefined
-        window.UxCanvasViewer?.init?.(productUuid, sessionId, {})
-      })
+      window.UxCanvasViewer.init('29a99557-85dd-4b6b-8a28-b6599dc475fa')
     </script>
   </head>
   <body>
