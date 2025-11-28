@@ -13,14 +13,57 @@
     <script>
       window.UxCanvasViewer.init('29a99557-85dd-4b6b-8a28-b6599dc475fa')
     </script>
+    <style>
+      :root { --border:#cfd8dc; --muted:#546e7a; --primary:#266ce3; }
+      body { background:#f7f8fa; }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 16px; }
+      .section { background: #fff; border:1px solid var(--border); border-radius: 6px; padding: 16px; margin-top: 16px; }
+      .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .btn { padding: 8px 12px; border:1px solid var(--border); border-radius: 6px; background:#fff; }
+      .btn-primary { background: var(--primary); color:#fff; border-color: var(--primary); }
+      .hint { color: var(--muted); font-size: 14px; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border-bottom:1px solid var(--border); padding: 8px; }
+    </style>
   </head>
   <body>
-    <h1>MPA Sample - Page B</h1>
-    <nav>
-      <a href="./index.html">Index</a>
-      <a href="./page-a.html">Page A</a>
-    </nav>
-    <p class="hint">別URLでの動作確認用ページです。</p>
+    <div class="wrap">
+      <h1>MPA Sample - Page B</h1>
+      <nav>
+        <a href="./index.html" id="b-link-index" data-qa="b-link-index">Index</a>
+        <a href="./page-a.html" id="b-link-a" data-qa="b-link-a">Page A</a>
+      </nav>
+
+      <div class="section" id="b-hero" data-qa="b-hero">
+        <h2>Bページのヒーロー</h2>
+        <button id="b-cta" class="btn btn-primary" data-qa="b-cta">BのCTA</button>
+      </div>
+
+      <div class="section grid-2" id="b-columns" data-qa="b-columns">
+        <div>
+          <h3>入力フォーム</h3>
+          <label for="b-email">メール</label>
+          <input id="b-email" name="b-email" type="email" placeholder="you@example.com" data-qa="b-email" />
+          <button id="b-send" class="btn" data-qa="b-send">送信</button>
+        </div>
+        <div>
+          <h3>テーブル</h3>
+          <table id="b-table" data-qa="b-table">
+            <thead><tr><th>項目</th><th>値</th></tr></thead>
+            <tbody>
+              <tr><td id="b-row-1-key" data-qa="b-row-1-key">Key</td><td id="b-row-1-val" data-qa="b-row-1-val">Value</td></tr>
+              <tr><td id="b-row-2-key" data-qa="b-row-2-key">Status</td><td id="b-row-2-val" data-qa="b-row-2-val"><span class="hint">active</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section" id="b-extra" data-qa="b-extra">
+        <h2>追加要素</h2>
+        <p class="hint">アンケートのトリガとして利用可能な要素も含めます。</p>
+        <button id="b-like" class="btn" data-qa="b-like">いいね</button>
+        <button id="b-follow" class="btn" data-qa="b-follow">フォロー</button>
+      </div>
+    </div>
   </body>
   </html>
-

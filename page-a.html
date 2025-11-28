@@ -13,14 +13,65 @@
     <script>
       window.UxCanvasViewer.init('29a99557-85dd-4b6b-8a28-b6599dc475fa')
     </script>
+    <style>
+      :root { --border:#cfd8dc; --primary:#266ce3; --muted:#546e7a; }
+      body { background: #f7f8fa; }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 16px; }
+      nav a { margin-right: 12px; }
+      .section { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-top: 16px; }
+      .btn { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background:#fff; }
+      .btn-primary { background: var(--primary); color:#fff; border-color: var(--primary); }
+      .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .card { border:1px solid var(--border); border-radius: 6px; padding: 12px; background:#fff; }
+      .hint { color: var(--muted); font-size: 14px; }
+    </style>
   </head>
   <body>
-    <h1>MPA Sample - Page A</h1>
-    <nav>
-      <a href="./index.html">Index</a>
-      <a href="./page-b.html">Page B</a>
-    </nav>
-    <p class="hint">別URLでの動作確認用ページです。</p>
+    <div class="wrap">
+      <h1>MPA Sample - Page A</h1>
+      <nav>
+        <a href="./index.html" id="link-index" data-qa="link-index">Index</a>
+        <a href="./page-b.html" id="link-b" data-qa="link-b">Page B</a>
+      </nav>
+
+      <div class="section" id="a-actions" data-qa="a-actions">
+        <h2>アクション群</h2>
+        <button id="a-primary" class="btn btn-primary" data-qa="a-primary">Aの主要ボタン</button>
+        <button id="a-secondary" class="btn" data-qa="a-secondary">Aの副次ボタン</button>
+      </div>
+
+      <div class="section" id="a-cards" data-qa="a-cards">
+        <h2>カード一覧</h2>
+        <div class="grid">
+          <div class="card" id="card-1" data-qa="card"><h3>カード1</h3><p class="hint">ツールチップ・ハイライト対象</p></div>
+          <div class="card" id="card-2" data-qa="card"><h3>カード2</h3><p class="hint">別要素のアンカー</p></div>
+          <div class="card" id="card-3" data-qa="card"><h3>カード3</h3><p class="hint">動的追加テスト</p></div>
+        </div>
+      </div>
+
+      <div class="section" id="a-form" data-qa="a-form">
+        <h2>小フォーム</h2>
+        <label for="search">検索</label>
+        <input id="search" name="search" placeholder="キーワード" data-qa="a-search" />
+        <button id="search-btn" class="btn" data-qa="a-search-btn">検索</button>
+      </div>
+
+      <div class="section" id="a-dynamic" data-qa="a-dynamic">
+        <h2>動的要素</h2>
+        <p class="hint">2秒後にボタンを挿入</p>
+        <div id="a-dynamic-slot"></div>
+      </div>
+    </div>
+
+    <script>
+      setTimeout(() => {
+        const b = document.createElement('button')
+        b.className = 'btn'
+        b.id = 'a-dynamic-btn'
+        b.dataset.qa = 'a-dynamic-btn'
+        b.textContent = '後から追加されたボタン'
+        document.getElementById('a-dynamic-slot').appendChild(b)
+      }, 2000)
+    </script>
   </body>
   </html>
-
