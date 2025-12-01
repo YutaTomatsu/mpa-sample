@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MPA Sample - Index</title>
+    <title>stg環境用埋め込みテストサイト</title>
     <style>
       body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; padding: 24px; }
       nav a { margin-right: 12px; }
       .hint { color: #666; font-size: 14px; }
     </style>
-    <script src="./ux-canvas-viewer.iife.js"></script>
+    <script src="https://dap-embedded-stg.s3.ap-northeast-1.amazonaws.com/ux-canvas-viewer.iife.js"></script>
     <script>
-      window.UxCanvasViewer.init('29a99557-85dd-4b6b-8a28-b6599dc475fa')
+      window.UxCanvasViewer.init('84c63899-73a4-47e7-8957-7f3b01096fc5')
     </script>
     <style>
       :root {
@@ -23,6 +23,7 @@
       }
       body { background: var(--bg); }
       header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #fff; border: 1px solid var(--border); border-radius: 6px; }
+      .header-right { display: flex; align-items: center; gap: 16px; }
       #global-nav a { margin-right: 12px; text-decoration: none; color: #333; }
       #global-nav a:hover { text-decoration: underline; }
       .container { margin-top: 16px; display: grid; grid-template-columns: 1fr; gap: 16px; }
@@ -52,18 +53,19 @@
   </head>
   <body>
     <header>
-      <div id="logo" data-qa="logo">MPA Sample</div>
-      <nav id="global-nav">
-        <a class="nav-home" href="./index.html" data-qa="nav-home">Home</a>
-        <a class="nav-a" href="./page-a.html" data-qa="nav-a">Page A</a>
-        <a class="nav-b" href="./page-b.html" data-qa="nav-b">Page B</a>
-      </nav>
-      <div class="actions">
-        <div class="dropdown" id="user-dropdown" data-qa="user-dropdown">
-          <button class="btn" id="user-button">ユーザー</button>
-          <div class="dropdown-menu" id="user-menu">
-            <button class="btn" id="profile-btn" data-qa="profile-btn">プロフィール</button>
-            <button class="btn" id="logout-btn" data-qa="logout-btn">ログアウト</button>
+      <div id="logo" data-qa="logo">stg環境用埋め込みテストサイト</div>
+      <div class="header-right">
+        <nav id="global-nav">
+          <a class="nav-a" href="./page-a.html" data-qa="nav-a">Page A</a>
+          <a class="nav-b" href="./page-b.html" data-qa="nav-b">Page B</a>
+        </nav>
+        <div class="actions">
+          <div class="dropdown" id="user-dropdown" data-qa="user-dropdown">
+            <button class="btn" id="user-button">ユーザー</button>
+            <div class="dropdown-menu" id="user-menu">
+              <button class="btn" id="profile-btn" data-qa="profile-btn">プロフィール</button>
+              <button class="btn" id="logout-btn" data-qa="logout-btn">ログアウト</button>
+            </div>
           </div>
         </div>
       </div>
